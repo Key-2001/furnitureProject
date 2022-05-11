@@ -35,7 +35,11 @@ const AppProvider = ({children}) => {
     const [color,setColor] = useState('all');
     const [price,setPrice] = useState(309999)
     const [shipping,setShipping] = useState(false);
-
+    const [isFormLogin,setIsFormLogin] = useState({
+        isLogin:true,
+        isRegister:false,
+        isForgotPassword: false
+    })
     // handle products pages
     const handleShowSidebar = () => {
         setIsShowSidebar(!isShowSidebar);
@@ -222,7 +226,7 @@ const AppProvider = ({children}) => {
         <AppContext.Provider value={{
             ...state,isShowSidebar,handleShowSidebar,sortType,setSortType,dataDefault,
             queryTemp,setQueryTemp,setCategory,setCompany,company,setColor,price,setPrice,setShipping,shipping,handleClearFilter,
-            handleAddCartItem,toggleAmount,remove,clearCart
+            handleAddCartItem,toggleAmount,remove,clearCart,isFormLogin,setIsFormLogin
         }}>{children}</AppContext.Provider>
     )
 }

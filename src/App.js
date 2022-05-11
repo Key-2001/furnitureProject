@@ -8,11 +8,21 @@ import Sidebar from "./pages/Sidebar";
 import Loading from "./pages/Loading";
 import SingleProduct from "./components/SingleProduct";
 import Cart from "./pages/Cart";
+import { useGlobalContext } from "./context";
+import Login from "./components/LoginForm/Login";
+import Register from "./components/LoginForm/Register";
+import ForgotPassword from "./components/LoginForm/ForgotPassword";
+
 function App() {
+  const {isFormLogin} = useGlobalContext();
+
   return (
     <Router>
       <Navbar/>
       <Sidebar/>
+      {isFormLogin.isLogin && <Login/>}
+      {isFormLogin.isRegister && <Register/>}
+      {isFormLogin.isForgotPassword && <ForgotPassword/>}
       <Switch>
         <Route exact path='/'>
           <Home/>
