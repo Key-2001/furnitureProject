@@ -7,7 +7,7 @@ import { useGlobalContext } from '../context';
 const urlImg = 'https://react-course-comfy-sloth-store.netlify.app/static/media/logo.221f6b13.svg';
 
 const Navbar = () => {
-    const {handleShowSidebar,amount} = useGlobalContext();
+    const {handleShowSidebar,amount,setIsFormLogin} = useGlobalContext();
 
     return (
         <nav>
@@ -47,7 +47,12 @@ const Navbar = () => {
                             </span>
                         </span>
                     </Link>
-                    <button className='login-btn' type='button'>
+                    <button className='login-btn' type='button' onClick={() => setIsFormLogin((prev) => {
+                        return{
+                            ...prev,
+                            isLogin: true,
+                        }
+                    })}>
                         login 
                         <BsFillPersonPlusFill className='icon-login'/>
                     </button> 

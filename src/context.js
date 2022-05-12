@@ -36,7 +36,7 @@ const AppProvider = ({children}) => {
     const [price,setPrice] = useState(309999)
     const [shipping,setShipping] = useState(false);
     const [isFormLogin,setIsFormLogin] = useState({
-        isLogin:true,
+        isLogin:false,
         isRegister:false,
         isForgotPassword: false
     })
