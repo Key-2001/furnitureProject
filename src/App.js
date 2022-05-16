@@ -12,14 +12,15 @@ import { useGlobalContext } from "./context";
 import Login from "./components/LoginForm/Login";
 import Register from "./components/LoginForm/Register";
 import ForgotPassword from "./components/LoginForm/ForgotPassword";
+import AdminPage from "./components/AdminPage/AdminPage"
 
 function App() {
-  const {isFormLogin} = useGlobalContext();
+  const {isFormLogin,isAdminPage} = useGlobalContext();
 
   return (
     <Router>
-      <Navbar/>
-      <Sidebar/>
+      {!isAdminPage && <Navbar/>}
+      {!isAdminPage && <Sidebar/>}
       {isFormLogin.isLogin && <Login/>}
       {isFormLogin.isRegister && <Register/>}
       {isFormLogin.isForgotPassword && <ForgotPassword/>}
@@ -39,10 +40,14 @@ function App() {
         <Route  path='/cart'>
           <Cart/>
         </Route>
+        <Route path='/admin'>
+          <AdminPage/>
+        </Route>
         <Route path='*'>
           <Loading/>
         </Route>
       </Switch>
+      {!isAdminPage && 
       <footer>
         <h5>
           2021 <span>comfySloth</span>
@@ -50,7 +55,7 @@ function App() {
         <h5>
           ALL rights reserved
         </h5>
-      </footer>
+      </footer>}
     </Router>
   );
 }

@@ -40,6 +40,7 @@ const AppProvider = ({children}) => {
         isRegister:false,
         isForgotPassword: false
     })
+    const [isAdminPage,setIsAdminPage] = useState(false);
     // handle products pages
     const handleShowSidebar = () => {
         setIsShowSidebar(!isShowSidebar);
@@ -226,7 +227,7 @@ const AppProvider = ({children}) => {
         <AppContext.Provider value={{
             ...state,isShowSidebar,handleShowSidebar,sortType,setSortType,dataDefault,
             queryTemp,setQueryTemp,setCategory,setCompany,company,setColor,price,setPrice,setShipping,shipping,handleClearFilter,
-            handleAddCartItem,toggleAmount,remove,clearCart,isFormLogin,setIsFormLogin
+            handleAddCartItem,toggleAmount,remove,clearCart,isFormLogin,setIsFormLogin,isAdminPage,setIsAdminPage
         }}>{children}</AppContext.Provider>
     )
 }
